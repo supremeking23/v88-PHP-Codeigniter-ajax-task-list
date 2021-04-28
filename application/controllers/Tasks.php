@@ -67,6 +67,7 @@ class Tasks extends CI_Controller {
 
         $this->task->update_task_status($task_detail);
         $data["tasks"] = $this->task->get_all_task();
+        $data["in_progress_task"] = $this->task->get_all_in_progress_task();
         echo json_encode($data);
     }
 }

@@ -153,7 +153,12 @@
 
                         </ul>
                     </div>
-                    <div class="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">Done</div>
+                    <div class="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">
+                        <ul class="done-task-list">
+                         
+
+                        </ul>
+                    </div>
                 </div>
 
             </div>
