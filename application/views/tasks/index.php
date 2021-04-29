@@ -148,12 +148,25 @@
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="in-progress" role="tabpanel" aria-labelledby="in-progress-tab">
+                        <div class="row loading-gif-container">
+                            <div class="col-md-12 d-flex justify-content-center">
+                                <img src='<?= base_url()?>assets/img/loading.gif'>
+                            </div>
+                        </div>
+
                         <ul class="in-progress-task-list">
                          
 
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">
+
+                        <div class="row loading-gif-container">
+                            <div class="col-md-12 d-flex justify-content-center">
+                                <img src='<?= base_url()?>assets/img/loading.gif'>
+                            </div>
+                        </div>
+                        
                         <ul class="done-task-list">
                          
 

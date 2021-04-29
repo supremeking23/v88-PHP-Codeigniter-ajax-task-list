@@ -4,17 +4,17 @@ date_default_timezone_set('Asia/Manila');
 class Task extends CI_Model {
    
     function get_all_task(){
-        $query = "SELECT * FROM tasks ";
+        $query = "SELECT * FROM tasks ORDER BY id DESC";
         return $this->db->query($query)->result_array();
     }
 
     function get_all_in_progress_task(){
-        $query = "SELECT * FROM tasks WHERE status = 0";
+        $query = "SELECT * FROM tasks WHERE status = 0 ORDER BY id DESC,updated_at DESC";
         return $this->db->query($query)->result_array();
     }
 
     function get_all_done_task(){
-        $query = "SELECT * FROM tasks WHERE status = 1";
+        $query = "SELECT * FROM tasks WHERE status = 1 ORDER BY id DESC,updated_at DESC";
         return $this->db->query($query)->result_array();
     }
 
