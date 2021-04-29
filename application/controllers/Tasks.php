@@ -38,6 +38,8 @@ class Tasks extends CI_Controller {
 
         $this->task->add_task($task_detail);
         $data["tasks"] = $this->task->get_all_task();
+        $data["in_progress_task"] = $this->task->get_all_in_progress_task();
+        $data["done_task"] = $this->task->get_all_done_task();
 		echo json_encode($data);
 	}
 
@@ -48,6 +50,9 @@ class Tasks extends CI_Controller {
         );
         $this->task->update_task_title($task_detail);
         $data["tasks"] = $this->task->get_all_task();
+        $data["in_progress_task"] = $this->task->get_all_in_progress_task();
+        $data["done_task"] = $this->task->get_all_done_task();
+        
         echo json_encode($data);
     }
 
@@ -68,6 +73,7 @@ class Tasks extends CI_Controller {
         $this->task->update_task_status($task_detail);
         $data["tasks"] = $this->task->get_all_task();
         $data["in_progress_task"] = $this->task->get_all_in_progress_task();
+        $data["done_task"] = $this->task->get_all_done_task();
         echo json_encode($data);
     }
 }

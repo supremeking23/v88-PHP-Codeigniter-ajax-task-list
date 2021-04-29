@@ -105,6 +105,51 @@
                     $(".toast-body").html(`Task has been added successfully`);
                     $(".task-list").show();
                     $(".task-list").html(html);
+
+
+                    let in_progress = ``;
+                    for (let i = 0; i < response.in_progress_task.length; i++) {
+                        in_progress += `<li>`;
+                        in_progress += `   <form action="<?= base_url(); ?>tasks/update_task_title" id="update-task-form" method="POST" class="col-md-8 d-flex align-items-center justify-content-between">`;
+                        in_progress += `       <button class="edit-form btn btn-warning btn-sm text-white"  ${
+                            response.in_progress_task[i].status == 1 ? "disabled" : ""
+                        } type="button"><i class="fas fa-edit"></i></button>`;
+                        in_progress += `       <button class="cancel-edit-btn btn btn-warning btn-sm text-white" type="button"><i class="fas fa-undo"></i></button>`;
+                        in_progress += `       <input type="checkbox" ${response.in_progress_task[i].status == 1 ? "checked" : ""}  ${
+                            response.in_progress_task[i].status == 1 ? "disabled" : ""
+                        } name="done" class="done-checkbox" id="">`;
+                        in_progress += `       <p ${response.in_progress_task[i].status == 1 ? 'style="text-decoration:line-through"' : ""}>${response.in_progress_task[i].name}</p>`;
+                        in_progress += `       <input type="hidden" name="task_id" value="${response.in_progress_task[i].id}">`;
+                        in_progress += `       <div class="form-group">`;
+                        in_progress += `           <input type="text" class="form-control  edit-task" id="task" name="task" value="${response.in_progress_task[i].name}" aria-describedby="task">`;
+                        in_progress += `       </div>`;
+                        in_progress += `   </form>`;
+                        in_progress += `</li>`;
+                    }
+                    $(".in-progress-task-list").html(in_progress);
+                    
+
+                    let done_task = ``;
+                    for (let i = 0; i < response.done_task.length; i++) {
+                        done_task += `<li>`;
+                        done_task += `   <form action="<?= base_url(); ?>tasks/update_task_title" id="update-task-form" method="POST" class="col-md-8 d-flex align-items-center justify-content-between">`;
+                        done_task += `       <button class="edit-form btn btn-warning btn-sm text-white"  ${
+                            response.done_task[i].status == 1 ? "disabled" : ""
+                        } type="button"><i class="fas fa-edit"></i></button>`;
+                        done_task += `       <button class="cancel-edit-btn btn btn-warning btn-sm text-white" type="button"><i class="fas fa-undo"></i></button>`;
+                        done_task += `       <input type="checkbox" ${response.done_task[i].status == 1 ? "checked" : ""}  ${
+                            response.done_task[i].status == 1 ? "disabled" : ""
+                        } name="done" class="done-checkbox" id="">`;
+                        done_task += `       <p ${response.done_task[i].status == 1 ? 'style="text-decoration:line-through"' : ""}>${response.done_task[i].name}</p>`;
+                        done_task += `       <input type="hidden" name="task_id" value="${response.done_task[i].id}">`;
+                        done_task += `       <div class="form-group">`;
+                        done_task += `           <input type="text" class="form-control  edit-task" id="task" name="task" value="${response.done_task[i].name}" aria-describedby="task">`;
+                        done_task += `       </div>`;
+                        done_task += `   </form>`;
+                        done_task += `</li>`;
+                    }
+                    $(".done-task-list").html(done_task);
+
                 },
                 "json"
             );
@@ -140,10 +185,59 @@
                         html += `</li>`;
                     }
                     $(".loading-gif-container").hide();
-                    $("#liveToast").toast("show");
-                    $(".toast-body").html(`Task has been updated successfully`);
+                  
                     $(".task-list").show();
                     $(".task-list").html(html);
+
+
+                    let in_progress = ``;
+                    for (let i = 0; i < response.in_progress_task.length; i++) {
+                        in_progress += `<li>`;
+                        in_progress += `   <form action="<?= base_url(); ?>tasks/update_task_title" id="update-task-form" method="POST" class="col-md-8 d-flex align-items-center justify-content-between">`;
+                        in_progress += `       <button class="edit-form btn btn-warning btn-sm text-white"  ${
+                            response.in_progress_task[i].status == 1 ? "disabled" : ""
+                        } type="button"><i class="fas fa-edit"></i></button>`;
+                        in_progress += `       <button class="cancel-edit-btn btn btn-warning btn-sm text-white" type="button"><i class="fas fa-undo"></i></button>`;
+                        in_progress += `       <input type="checkbox" ${response.in_progress_task[i].status == 1 ? "checked" : ""}  ${
+                            response.in_progress_task[i].status == 1 ? "disabled" : ""
+                        } name="done" class="done-checkbox" id="">`;
+                        in_progress += `       <p ${response.in_progress_task[i].status == 1 ? 'style="text-decoration:line-through"' : ""}>${response.in_progress_task[i].name}</p>`;
+                        in_progress += `       <input type="hidden" name="task_id" value="${response.in_progress_task[i].id}">`;
+                        in_progress += `       <div class="form-group">`;
+                        in_progress += `           <input type="text" class="form-control  edit-task" id="task" name="task" value="${response.in_progress_task[i].name}" aria-describedby="task">`;
+                        in_progress += `       </div>`;
+                        in_progress += `   </form>`;
+                        in_progress += `</li>`;
+                    }
+                    $(".in-progress-task-list").html(in_progress);
+                    
+
+                    let done_task = ``;
+                    for (let i = 0; i < response.done_task.length; i++) {
+                        done_task += `<li>`;
+                        done_task += `   <form action="<?= base_url(); ?>tasks/update_task_title" id="update-task-form" method="POST" class="col-md-8 d-flex align-items-center justify-content-between">`;
+                        done_task += `       <button class="edit-form btn btn-warning btn-sm text-white"  ${
+                            response.done_task[i].status == 1 ? "disabled" : ""
+                        } type="button"><i class="fas fa-edit"></i></button>`;
+                        done_task += `       <button class="cancel-edit-btn btn btn-warning btn-sm text-white" type="button"><i class="fas fa-undo"></i></button>`;
+                        done_task += `       <input type="checkbox" ${response.done_task[i].status == 1 ? "checked" : ""}  ${
+                            response.done_task[i].status == 1 ? "disabled" : ""
+                        } name="done" class="done-checkbox" id="">`;
+                        done_task += `       <p ${response.done_task[i].status == 1 ? 'style="text-decoration:line-through"' : ""}>${response.done_task[i].name}</p>`;
+                        done_task += `       <input type="hidden" name="task_id" value="${response.done_task[i].id}">`;
+                        done_task += `       <div class="form-group">`;
+                        done_task += `           <input type="text" class="form-control  edit-task" id="task" name="task" value="${response.done_task[i].name}" aria-describedby="task">`;
+                        done_task += `       </div>`;
+                        done_task += `   </form>`;
+                        done_task += `</li>`;
+                    }
+                    $(".done-task-list").html(done_task);
+
+
+                    $("#liveToast").toast("show");
+                    $(".toast-body").html(`Task has been updated successfully`);
+
+
                 },
                 "json"
             );
@@ -205,9 +299,7 @@
                     html += `</li>`;
                 }
                 $(".task-list").html(html);
-                $("#liveToast").toast("show");
-                $(".toast-body").html(`This task has been done successfully`);
-                $(".task-list").show();
+               
 
 
                 let in_progress = ``;
@@ -231,6 +323,33 @@
                 }
 
                 $(".in-progress-task-list").html(in_progress);
+
+
+                let done_task = ``;
+                for (let i = 0; i < response.done_task.length; i++) {
+                    done_task += `<li>`;
+                    done_task += `   <form action="<?= base_url(); ?>tasks/update_task_title" id="update-task-form" method="POST" class="col-md-8 d-flex align-items-center justify-content-between">`;
+                    done_task += `       <button class="edit-form btn btn-warning btn-sm text-white"  ${
+                        response.done_task[i].status == 1 ? "disabled" : ""
+                    } type="button"><i class="fas fa-edit"></i></button>`;
+                    done_task += `       <button class="cancel-edit-btn btn btn-warning btn-sm text-white" type="button"><i class="fas fa-undo"></i></button>`;
+                    done_task += `       <input type="checkbox" ${response.done_task[i].status == 1 ? "checked" : ""}  ${
+                        response.done_task[i].status == 1 ? "disabled" : ""
+                    } name="done" class="done-checkbox" id="">`;
+                    done_task += `       <p ${response.done_task[i].status == 1 ? 'style="text-decoration:line-through"' : ""}>${response.done_task[i].name}</p>`;
+                    done_task += `       <input type="hidden" name="task_id" value="${response.done_task[i].id}">`;
+                    done_task += `       <div class="form-group">`;
+                    done_task += `           <input type="text" class="form-control  edit-task" id="task" name="task" value="${response.done_task[i].name}" aria-describedby="task">`;
+                    done_task += `       </div>`;
+                    done_task += `   </form>`;
+                    done_task += `</li>`;
+                }
+                $(".done-task-list").html(done_task);
+
+
+                $("#liveToast").toast("show");
+                $(".toast-body").html(`This task has been done successfully`);
+                $(".task-list").show();
             },"json");
 
             // if ($(this).is(":checked")) {
